@@ -1,0 +1,18 @@
+{
+  "name": "classwork4",
+  "version": "1.0.0",
+  "main": "file.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node -r dotenv/config file.js "
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "uuid": "^10.0.0"
+  }
+}
