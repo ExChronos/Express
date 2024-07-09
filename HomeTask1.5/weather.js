@@ -1,18 +1,17 @@
 const http = require('http')
-const fs = require('fs')
-const yargs = require('yargs')
-const {hideBin} = require('yargs/helpers')
+const readline = require('readline')
 
-const args = yargs(hideBin(process.argv)).parse()
-const len = Object.keys(args._).length
-
-if(len == 0){
-    console.log('You need atributes')
-    process.exit(1)
-}
-
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    prompt: '>'
+})
 const myAPIKEY = process.env.myAPIKEY
-const city = args._[0]
+
+console.log('Hi. This is the weather app. I will show you weather in the city.\nNow, please, give me a city name: ')
+rl.prompt()
+
+
 const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myAPIKEY}&units=metric`
 
 http.get(url, (res) => {
@@ -31,7 +30,7 @@ http.get(url, (res) => {
     })
     res.on('end', () => {
         let parseData = JSON.parse(rawData)
-        console.log(`${parseData.main.temp} градусов по Цельсию`)
+        console.log(`${parseData.main.temp} degrees Celsius in ${city} now`)
     })
 }).on('error', (err) => {
     console.error(`Error ${err}`)
