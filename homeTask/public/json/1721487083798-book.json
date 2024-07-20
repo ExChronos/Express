@@ -1,0 +1,10 @@
+{
+    "id": "string",
+    "title": "string",
+    "description": "string",
+    "authors": "string",
+    "favorite": 0,
+    "fileCover": "string",
+    "fileName": "string",
+    "fileBook": "string"
+}
