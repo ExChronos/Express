@@ -33,14 +33,23 @@ apiBooksRouter.get('/loader/upload', (_, res) => {
     res.sendFile(__dirname+"/static/html/createBook.html")
 })
 apiBooksRouter.post('/loader/upload',
-    fileMulter.single('fileName'),
-    (req, res) => {
-        let file = req.file
 
-        if(!file)
+    fileMulter.single('fileName'),
+
+    (req, res) => {
+        if(!req.file)
             res.json('Not file')
-        else
+        else{
+            let file = req.file
+            let {id, title, description, authors, favorite, fileCover, fileName} = req.file
+    
+            const {books} = shelves
+            const newBook = new Book(title, description, authors, favorite, fileCover, fileName, id)
+    
+            books.push(newBook)
             res.json(file)
+        }
+            
 })
 
 //№2 - получить книгу по id
@@ -99,8 +108,6 @@ apiBooksRouter.delete('/:id', (req, res) => {
 
 //№6 - получить книгу по 
 apiBooksRouter.get('/:id/download', (req, res) => {
-    
-
     res.json(express.static(__dirname+'../public'))
 })
 
