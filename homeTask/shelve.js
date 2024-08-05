@@ -9,11 +9,12 @@ const app = express()
 
 app.use(logger)
 
-app.use(express.static('/routes/static/html'))
 
-app.use('/home', (req, res) => {
-    res.send('<h2>Home</h2>')
-})
+app.use(express.urlencoded({extended: true}));                  // сообщает сайту, что мы используем форму
+app.use(express.static('public'))
+app.set('view engine', 'ejs');                                  // сообщает сайту, что мы используем шаблонизатор
+
+
 app.use('/api/book', apiBooksRouter)
 app.use('/api/user', apiUserRouter)
 
@@ -21,4 +22,4 @@ app.use(err404)
 
 
 const PORT = process.env.PORT || 7000
-app.listen(PORT, console.log('Server start at: http://localhost:7000'))
+app.listen(PORT, console.log('Server started'))

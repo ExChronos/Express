@@ -2,11 +2,11 @@ const multer = require('multer')
 
 const storage = multer.diskStorage({
     destination(req, file, cb){
-        cb(null, 'public/json')
+        cb(null, 'public/downloadBooks')
     },
     filename(req, file, cb){
-        
-        cb(null, `${Data.now()}-${file.originalname}`)
+        // let name = req.body()
+        cb(null, `${Date.now()}-${file.originalname}`)
     }
 })
 

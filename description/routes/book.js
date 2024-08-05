@@ -16,14 +16,13 @@ const shelve = {
 
 const bookRouter = express.Router()
 
-
 bookRouter.get('/home', (req, res) => {
-    const {books} = shelve
-    res.json(books)
+    res.render(__dirname+'./static/ejs/show.ejs')
 })
 
+
 bookRouter.get('/upload', (req, res) => {
-    res.sendFile(__dirname+'/static/createBook.html')
+    res.sendFile(__dirname+'/static/html/createBook.html')
 })
 bookRouter.post('/upload',
         fileMulter.single('book'),
