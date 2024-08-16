@@ -28,10 +28,11 @@
             <div class="display__bookList">
                 <div class="display__edit">
                     <div>
-                        <h3><%= folder[index] %></h3>
+                        <h4><%= folder[index] %></h4>
                     </div>
                     <div class="display__methods">
                         <form method="get" action=<%= `book/view/${folder[index]}`%>>
+                            
                             <input type="submit" value="View" class="view">
                         </form>
                         <form method="put" action=<%= `book/${folder[index]}` %>>
