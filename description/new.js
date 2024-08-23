@@ -1,20 +1,20 @@
 const express = require('express')
+const mongose = require('mongoose')
 
-const logger = require('./middleware/logger')
-const bookRouter = require('./routes/book')
-const indexRouter = require('./routes/index')
+const errorMiddleware = require('./middleware/err-404')
+const todoApi = require('./routes/todo')
 
 const app = express()
+app.use(express.json())
 
-app.use(logger)
-app.use(express.static('./static/html'))
-app.use(express.static('./static/ejs'))
+app.use('/api/todo', todoApi)
+app.use(errorMiddleware)
 
-app.use(express.urlencoded())
-app.set('view engine', 'ejs')
+async function start(PORT, UrlDB) {
+    
+}
 
-app.use('/home', indexRouter)
-app.use('/api/book', bookRouter)
-
+const UrlDB = process.env.UrlDB
 const PORT = process.env.PORT || 7000
-app.listen(PORT, console.log(`Server started at: http://localhost:${PORT}`))
+
+start(PORT, UrlDB)
