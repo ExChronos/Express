@@ -30,6 +30,6 @@ async function start(PORT, UrlDB) {
 };
 
 const PORT = process.env.PORT || 7000;
-const UrlDB = "mongodb://localhost:27017"
+const UrlDB = 'mongodb://localhost:27017/'
 
 start(PORT, UrlDB)

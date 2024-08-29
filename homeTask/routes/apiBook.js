@@ -10,7 +10,7 @@ apiBooksRouter.get('/', async (req, res) => {
         const book = await Book.find().select('-__v')
         res.json(book)
     } catch (error) {
-        res.status(500).json(e)
+        res.status(500).json(error)
     }
 })
 
@@ -28,7 +28,7 @@ apiBooksRouter.get('/:id', async (req, res) => {
 
 //№3 - создание книги
 apiBooksRouter.post('/', async (req, res) => {
-    const {title, desc, auth, fav, fCover, fName} = req.params
+    const {title, desc, auth, fav, fCover, fName} = req.body
     const id = uuid()
 
     const newBook = new Book({
@@ -37,15 +37,14 @@ apiBooksRouter.post('/', async (req, res) => {
         auth,
         fav,
         fCover,
-        fName,
-        id
+        fName
     })
 
     try {
         await newBook.save()
         res.json(newBook)
     } catch (error) {
-        res.status(500).json(e)
+        res.status(500).json(error)
     }
 })
 

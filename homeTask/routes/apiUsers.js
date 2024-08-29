@@ -11,7 +11,7 @@ apiUserRouter.get('/', async (req, res) => {
         const user = await User.find().select('-__v')
         res.json(user)
     } catch (error) {
-        res.status(500).json(e)
+        res.status(500).json(error)
     }
 })
 
