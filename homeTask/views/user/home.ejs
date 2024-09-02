@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Users</h1>
-    <% for( let index = 0; index < usersDB.length; index++ ) { %>
-        <h3><%= usersDB[index].name %></h3>
-    <% } %>
-</body>
-</html>
+<% if (!user) { %>
+    <p>Главная</p>
+    <p>Пожалуйста, <a href="user/login">авторизуйтесь</a></p>
+<% } else { %>
+    <p>Привет, <%= user.username %>.</p>
+    <p>Перейти в <a href="user/me">профиль</a></p>
+<% } %>
