@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
+require('dotenv').config()
+const axios = require('axios')
 
 const apiBooksRouter = require('./routes/apiBook')
 const apiUserRouter = require('./routes/apiUsers')
@@ -13,7 +15,7 @@ const app = express()
 app.use(logger)
 
 app.use(express.urlencoded({extended: true}));                  // сообщает сайту, что мы используем форму
-// app.use(express.static('public'))
+app.use(express.static('public'))
 app.use(express.json())
 app.set('view engine', 'ejs');                                  // сообщает сайту, что мы используем шаблонизатор
 app.use(session({secret: 'SECRET'}))
@@ -36,6 +38,6 @@ async function start(PORT, UrlDB) {
 };
 
 const PORT = process.env.PORT || 7000;
-const UrlDB = 'mongodb://localhost:27017/'
+const URLDB = process.env.URLDB
 
-start(PORT, UrlDB)
+start(PORT, URLDB)

@@ -1,6 +1,10 @@
 const {Schema, model} = require('mongoose')
 
 const BookSchema = new Schema({
+    _id: {
+        type: Object,
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -24,10 +28,7 @@ const BookSchema = new Schema({
     fName: {
         type: String,
         default: ""
-    },
-    id: {
-        type: String,
-    },
+    }
 })
 
 module.exports = model("Book", BookSchema)

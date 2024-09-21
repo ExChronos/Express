@@ -48,7 +48,7 @@ router.put('/:id', async (req, res) => {
         })
         res.redirect(`/api/todo/${id}`)
     } catch (error) {
-        res.status(500).json(e)
+        res.status(500).json(error)
     }
 })
 
