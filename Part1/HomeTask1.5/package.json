@@ -1,0 +1,21 @@
+{
+  "name": "hometask1.5",
+  "version": "1.0.0",
+  "main": "weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node -r dotenv/config weather.js",
+    "weather": "node -r dotenv/config weather1.1.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "readline": "^1.3.0",
+    "url": "^0.11.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
