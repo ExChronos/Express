@@ -1,0 +1,30 @@
+body {
+  background-color: mediumaquamarine;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+header {
+  background-color: antiquewhite;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  padding-inline: 10px;
+  margin-bottom: 15px;
+  border-radius: 21px;
+}
+
+main {
+  max-height: 30px;
+  height: 100%;
+}
+main input[type=submit] {
+  border: none;
+  border-radius: 10px;
+  background-image: linear-gradient(red, blue);
+  font-size: 21px;
+  padding: 7px;
+  color: white;
+  cursor: pointer;
+}/*# sourceMappingURL=reg.css.map */
